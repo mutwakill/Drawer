@@ -4,12 +4,30 @@ import android.text.format.Time;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 public class Reservation implements Serializable {
     private Customer customer;
     private Calendar time;
-    private String dish;
+    private List<Dish> dishes;
     private String notes;
+    static enum Status{DELIVERED,WAITING,CANCELED};
+    private Status status;
+
+
+
+
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
+
 
     public Customer getCustomer() {
         return customer;
@@ -27,12 +45,12 @@ public class Reservation implements Serializable {
         this.time = time;
     }
 
-    public String getDish() {
-        return dish;
+    public List<Dish> getDish() {
+        return dishes;
     }
 
-    public void setDish(String dish) {
-        this.dish = dish;
+    public void setDish(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     public String getNotes() {
